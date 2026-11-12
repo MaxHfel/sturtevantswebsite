@@ -9,9 +9,9 @@
 <body>
 
   <header>
-    <h1><a href="index.html">Sturtevants</a></h1>
+    <h1><a href="index.html">Sturte<span>v</span>ants</a></h1>
     <a href="#" class="account-icon" aria-label="Account">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="9" cy="7" r="3.5"/>
         <path d="M2.5 20v-1.5a5 5 0 0 1 5-5h3a5 5 0 0 1 5 5V20"/>
         <path d="M15 3.6a3.5 3.5 0 0 1 0 6.8"/>
@@ -34,26 +34,39 @@
     <a href="winter.html">Winter</a>
   </nav>
 
-  <main>
-    <section class="box box-tall">
+  <section class="hero">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Snowboarder_in_flight_%28Tannheim%2C_Austria%29.jpg/1280px-Snowboarder_in_flight_%28Tannheim%2C_Austria%29.jpg" alt="A snowboarder in the air above snowy trees">
+    <div class="hero-text">
       <h2>Snowboard</h2>
       <p>Boards, boots and bindings for park, powder and all-mountain riding.</p>
+      <a href="#services" class="btn">See our services</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="box box-tall">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Big_air_Qu%C3%A9bec_2011.jpg/1280px-Big_air_Qu%C3%A9bec_2011.jpg" alt="A snowboarder doing a big air jump">
+      <div class="box-body">
+        <h2>About Snowboarding</h2>
+        <p>From your first board to a new park setup, our riders will help you find gear that matches your style.</p>
+      </div>
     </section>
 
     <section class="box">
       <h2>Gear</h2>
-      <ul>
+      <ul class="chips">
         <li>Snowboards</li>
-        <li>Snowboard boots</li>
+        <li>Boots</li>
         <li>Bindings</li>
-        <li>Helmets &amp; goggles</li>
+        <li>Helmets</li>
+        <li>Goggles</li>
         <li>Outerwear</li>
       </ul>
     </section>
 
-    <section class="box">
+    <section class="box" id="services">
       <h2>Snowboard Services</h2>
-      <ul>
+      <ul class="checks">
         <li>Wax &amp; edge tune</li>
         <li>Base repair</li>
         <li>Binding setup</li>
@@ -62,7 +75,10 @@
     </section>
   </main>
 
-  <footer>&copy; 2026 Sturtevants</footer>
+  <footer>
+    <p>&copy; 2026 Sturtevants</p>
+    <p class="credits">Photos from Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Snowboarder_in_flight_(Tannheim,_Austria).jpg">S&ouml;ren from Germany</a> (CC BY 2.0) &middot; <a href="https://commons.wikimedia.org/wiki/File:Big_air_Qu%C3%A9bec_2011.jpg">Letartean</a> (CC BY 3.0)</p>
+  </footer>
 
 </body>
 </html>
