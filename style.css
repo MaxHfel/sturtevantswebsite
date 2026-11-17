@@ -8,7 +8,6 @@
   --navy-light: #2a3649;
   --ice: #4da3dc;
   --ice-dark: #2f86c0;
-  --ice-pale: #e8f2fa;
   --snow: #f3f6fa;
   --card: #ffffff;
   --text: #1b2433;
@@ -392,11 +391,8 @@ main {
   margin-bottom: 6px;
 }
 
-/* Text boxes and dropdowns (popup + inventory) */
 #location-form input,
-#location-form select,
-.inventory-form input[type="text"],
-.inventory-form select {
+#location-form select {
   width: 100%;
   padding: 12px 14px;
   border: 1px solid var(--border);
@@ -408,9 +404,7 @@ main {
 }
 
 #location-form input:focus,
-#location-form select:focus,
-.inventory-form input:focus,
-.inventory-form select:focus {
+#location-form select:focus {
   outline: 3px solid rgba(77, 163, 220, 0.3);
   border-color: var(--ice);
 }
@@ -492,34 +486,41 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.inventory-form input[type="text"],
+.inventory-form select {
+  padding: 8px 10px;
+  border: 1px solid #c9d1dc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 15px;
+  background-color: #ffffff;
+  color: var(--text);
 }
 
 .inventory-form input[type="text"] {
-  flex: 1 1 240px;
-  width: auto;
-  border-radius: 999px;
+  flex: 1 1 220px;
 }
 
-.inventory-form select {
-  flex: 0 1 200px;
-  width: auto;
-  border-radius: 999px;
+.inventory-form input:focus,
+.inventory-form select:focus {
+  outline: 2px solid var(--ice);
+  outline-offset: 1px;
+  border-color: var(--ice);
 }
 
 .inventory-form label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-size: 15px;
-  cursor: pointer;
 }
 
-.inventory-form input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  accent-color: var(--ice);
+#inv-store-note {
+  font-size: 14px;
 }
 
 .table-wrap {
@@ -528,74 +529,36 @@ main {
 
 .inventory-table {
   width: 100%;
-  min-width: 520px;
+  min-width: 480px;
   border-collapse: collapse;
+  font-size: 15px;
 }
 
 .inventory-table th {
-  background-color: var(--navy);
-  color: #ffffff;
   text-align: left;
-  padding: 12px 16px;
-  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.inventory-table th:first-child {
-  border-radius: 12px 0 0 0;
-}
-
-.inventory-table th:last-child {
-  border-radius: 0 12px 0 0;
+  padding: 8px 10px;
+  border-bottom: 2px solid var(--navy);
 }
 
 .inventory-table td {
-  padding: 12px 16px;
+  padding: 8px 10px;
   border-bottom: 1px solid var(--border);
-}
-
-.inventory-table tbody tr:nth-child(even) {
-  background-color: var(--snow);
-}
-
-.inventory-table tbody tr:hover {
-  background-color: var(--ice-pale);
-}
-
-.inventory-table .price {
-  font-weight: 600;
 }
 
 .inventory-table .empty {
   text-align: center;
   color: var(--muted);
-  padding: 28px;
-}
-
-.stock {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.stock.in {
-  background-color: #e3f5ea;
-  color: #1e7a44;
+  padding: 20px;
 }
 
 .stock.low {
-  background-color: #fff4dc;
-  color: #8a5a00;
+  color: #9a6500;
+  font-weight: 600;
 }
 
 .stock.out {
-  background-color: #fde8e8;
-  color: #b42318;
+  color: var(--muted);
 }
 
 /* ----- Footer ----- */

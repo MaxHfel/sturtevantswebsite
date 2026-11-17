@@ -213,8 +213,8 @@ function setupLocationPicker() {
 
 function stockLabel(qty) {
   if (qty === 0) return `<span class="stock out">Out of stock</span>`;
-  if (qty <= 2)  return `<span class="stock low">Only ${qty} left</span>`;
-  return `<span class="stock in">${qty} in stock</span>`;
+  if (qty <= 2)  return `<span class="stock low">${qty} left</span>`;
+  return `${qty} in stock`;
 }
 
 function renderInventory() {
@@ -253,7 +253,7 @@ function renderInventory() {
     <tr>
       <td>${item.name}</td>
       <td>${item.category}</td>
-      <td class="price">${formatPrice(item.price)}</td>
+      <td>${formatPrice(item.price)}</td>
       <td>${stockLabel(item.qty)}</td>
     </tr>`).join("");
 }
