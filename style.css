@@ -8,6 +8,7 @@
   --navy-light: #2a3649;
   --ice: #4da3dc;
   --ice-dark: #2f86c0;
+  --ice-pale: #e8f2fa;
   --snow: #f3f6fa;
   --card: #ffffff;
   --text: #1b2433;
@@ -199,7 +200,7 @@ nav a.active {
   transform: translateY(-2px);
 }
 
-/* ----- Main content grid (same layout as the wireframe) ----- */
+/* ----- Main content grid ----- */
 main {
   display: grid;
   grid-template-columns: 1fr 2.4fr;
@@ -335,6 +336,268 @@ main {
   font-weight: 600;
 }
 
+/* ----- Location popup ----- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(27, 36, 51, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal-box {
+  position: relative;
+  background-color: var(--card);
+  border-radius: 24px;
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 440px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-box h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: var(--navy);
+}
+
+#location-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Text boxes and dropdowns (popup + inventory) */
+#location-form input,
+#location-form select,
+.inventory-form input[type="text"],
+.inventory-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 16px;
+  background-color: var(--card);
+  color: var(--text);
+}
+
+#location-form input:focus,
+#location-form select:focus,
+.inventory-form input:focus,
+.inventory-form select:focus {
+  outline: 3px solid rgba(77, 163, 220, 0.3);
+  border-color: var(--ice);
+}
+
+.or {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+#location-form .btn {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+#location-result {
+  margin-top: 20px;
+}
+
+.store-card {
+  background-color: var(--snow);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.store-card h3 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.store-card p {
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge.open {
+  background-color: #e3f5ea;
+  color: #1e7a44;
+}
+
+.badge.closed {
+  background-color: #fde8e8;
+  color: #b42318;
+}
+
+.error {
+  color: #b42318;
+  font-weight: 500;
+}
+
+/* ----- Inventory section ----- */
+.inventory {
+  grid-column: 1 / -1; /* stretch across both grid columns */
+}
+
+/* don't lift the big table box on hover */
+.inventory:hover {
+  transform: none;
+  box-shadow: 0 10px 30px rgba(27, 36, 51, 0.08);
+}
+
+.inventory-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.inventory-form input[type="text"] {
+  flex: 1 1 240px;
+  width: auto;
+  border-radius: 999px;
+}
+
+.inventory-form select {
+  flex: 0 1 200px;
+  width: auto;
+  border-radius: 999px;
+}
+
+.inventory-form label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.inventory-form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--ice);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.inventory-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+}
+
+.inventory-table th {
+  background-color: var(--navy);
+  color: #ffffff;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.inventory-table th:first-child {
+  border-radius: 12px 0 0 0;
+}
+
+.inventory-table th:last-child {
+  border-radius: 0 12px 0 0;
+}
+
+.inventory-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.inventory-table tbody tr:nth-child(even) {
+  background-color: var(--snow);
+}
+
+.inventory-table tbody tr:hover {
+  background-color: var(--ice-pale);
+}
+
+.inventory-table .price {
+  font-weight: 600;
+}
+
+.inventory-table .empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 28px;
+}
+
+.stock {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.stock.in {
+  background-color: #e3f5ea;
+  color: #1e7a44;
+}
+
+.stock.low {
+  background-color: #fff4dc;
+  color: #8a5a00;
+}
+
+.stock.out {
+  background-color: #fde8e8;
+  color: #b42318;
+}
+
 /* ----- Footer ----- */
 footer {
   background-color: var(--navy);
@@ -423,5 +686,13 @@ footer a {
 
   .box-tall .box-body {
     padding: 24px;
+  }
+
+  .inventory-form select {
+    flex: 1 1 100%;
+  }
+
+  .modal-box {
+    padding: 32px 22px;
   }
 }
