@@ -21,12 +21,12 @@
   </header>
 
   <nav>
-    <button class="location-btn">
+    <button class="location-btn" type="button">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/>
         <circle cx="12" cy="9.5" r="2.5"/>
       </svg>
-      Select Location
+      <span id="location-label">Select Location</span>
     </button>
     <a href="ski.html">Ski</a>
     <a href="snowboard.html" class="active">Snowboard</a>
@@ -39,7 +39,7 @@
     <div class="hero-text">
       <h2>Snowboard</h2>
       <p>Boards, boots and bindings for park, powder and all-mountain riding.</p>
-      <a href="#services" class="btn">See our services</a>
+      <a href="#inventory" class="btn">Browse inventory</a>
     </div>
   </section>
 
@@ -73,6 +73,26 @@
         <li>Season rentals</li>
       </ul>
     </section>
+
+    <section class="box inventory" id="inventory" data-sport="snowboard">
+      <h2>In-Store Inventory</h2>
+      <form class="inventory-form" id="inventory-form">
+        <input type="text" id="inv-search" placeholder="Search gear..." aria-label="Search gear">
+        <select id="inv-category" aria-label="Category">
+          <option value="all">All categories</option>
+        </select>
+        <label><input type="checkbox" id="inv-instock"> In stock only</label>
+      </form>
+      <p id="inv-store-note"></p>
+      <div class="table-wrap">
+        <table class="inventory-table">
+          <thead>
+            <tr><th>Item</th><th>Category</th><th>Price</th><th>Availability</th></tr>
+          </thead>
+          <tbody id="inv-body"></tbody>
+        </table>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -80,5 +100,6 @@
     <p class="credits">Photos from Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Snowboarder_in_flight_(Tannheim,_Austria).jpg">S&ouml;ren from Germany</a> (CC BY 2.0) &middot; <a href="https://commons.wikimedia.org/wiki/File:Big_air_Qu%C3%A9bec_2011.jpg">Letartean</a> (CC BY 3.0)</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
